@@ -9,22 +9,22 @@ import org.springframework.data.mongodb.core.mapping.Document;
 
 @Getter
 @Setter
-@AllArgsConstructor
 @NoArgsConstructor
+@AllArgsConstructor
 @Document(collection = "chat_rooms")
 public class ChatRoom {
     @Id
-    private String id; // MongoDB에서 자동 생성
+    private String id;
     private String participant1Id;
     private String participant2Id;
-    private boolean participant1Active; // WebSocket으로 관리
-    private boolean participant2Active; // WebSocket으로 관리
+    private boolean participant1Active;
+    private boolean participant2Active;
 
     public ChatRoom(String participant1Id, String participant2Id) {
         this.participant1Id = participant1Id;
         this.participant2Id = participant2Id;
-        this.participant1Active = false; // 기본 상태는 INACTIVE
-        this.participant2Active = false; // 기본 상태는 INACTIVE
+        this.participant1Active = false; // 기본값: 비활성화 상태
+        this.participant2Active = false; // 기본값: 비활성화 상태
     }
 }
 
